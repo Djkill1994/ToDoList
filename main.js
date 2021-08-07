@@ -50,6 +50,6 @@ textarea.addEventListener('input', saveTextAriaInput)
 buttonAdd.addEventListener('click', createNote);
 
 
-
+let test = 21;
 
 // --- END START LOGIC ---
