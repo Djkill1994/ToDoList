@@ -6,8 +6,9 @@
 const NOTE_KEY = 'notes';
 const textarea = document.querySelector('.textarea-create');
 const buttonAdd = document.querySelector('.add-button');
-const notesContainer = document.querySelector(".notes-container");
+const notesContainer = document.querySelector('.notes-container');
 let textAriaValue;
+
 
 // --- END CREATE VARIABLES ---
 
@@ -25,22 +26,36 @@ function saveTextAriaInput(event) {
     textAriaValue = event.target.value;
 }
 
-function createNote() {
-    // notes = [];
-    // notes.push({id: 1});
-    // notes -> [{id: 1}]
-    // notes.push({id: 2})
-    // notes -> [{id: 1}, {id: 2}]
+function addNoteToNotesSection(newNote) {
+    const noteContainer = document.createElement('div');
+    noteContainer.classList.add('noteContainer');
 
-    const newNote = { id: Math.random() + '', value: textAriaValue };
+    const newButtonDelete = document.createElement('button');
+    newButtonDelete.classList.add('buttonDelete');
+    newButtonDelete.setAttribute('data-id-note', newNote.id);
+    newButtonDelete.innerHTML = "Delete";
+
+    const textElement = document.createElement('div');
+    textElement.classList.add('note');
+    textElement.innerHTML = newNote.value;
+    textElement.setAttribute('data-id-note', newNote.id);
+
+    noteContainer.appendChild(textElement);
+    noteContainer.appendChild(newButtonDelete);
+    notesContainer.appendChild(noteContainer);
+
+    newButtonDelete.addEventListener('click', function (event) {
+        console.log(event.target.dataset.idNote);
+        // add logic here
+    });
+}
+
+function addNote() {
+    const newNote = {id: Math.random() + '', value: textAriaValue};
+
     notes.push(newNote);
     localStorage.setItem(NOTE_KEY, JSON.stringify(notes));
-
-    let noteDiv = document.createElement('div');
-    noteDiv.classList.add('note');
-    noteDiv.setAttribute('data-id-note', newNote.id);
-    noteDiv.innerHTML = newNote.value;
-    notesContainer.appendChild(noteDiv);
+    addNoteToNotesSection(newNote);
 }
 
 // ---- START LOGIC HERE ----
@@ -49,7 +64,5 @@ const notes = createNotes();
 textarea.addEventListener('input', saveTextAriaInput)
 buttonAdd.addEventListener('click', createNote);
 
-
-let test = 21;
 
 // --- END START LOGIC ---

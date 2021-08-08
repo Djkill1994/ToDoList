@@ -14,6 +14,7 @@ body{
     font-family: 'Anton', sans-serif;
     font-size: 270%;
     color: silver;
+    text-shadow: 5px 2px 2px black;
 }
 
 .textarea-container {
@@ -21,6 +22,7 @@ body{
     justify-content: center;
     align-items: center;
     gap: 40px;
+
 }
 
 .textarea-create {
@@ -29,6 +31,7 @@ body{
     height: 200px;
     font-size: 18px;
     box-shadow: 5px 5px 5px white ;
+    border-radius: 8px;
 }
 
 .add-button{
@@ -45,23 +48,44 @@ body{
 .notes-container{
     display: flex;
     flex-direction: column;
-    align-items: center;;
-    background-color: blanchedalmond;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(130,131,132,0.77);
     position: fixed;
     top: 20px;
     width: 160px;
     left: 20px;
     bottom: 20px;
     padding: 20px;
+    box-shadow: 5px 5px 5px 5px black;
+    border-radius: 8px;
+    overflow-y: auto;
 }
 
 .note {
-    height: 100%;
     width: 100%;
     padding: 20px;
-    background-color: white;
+    height: 60px;
+    background-color: rgba(130,131,132,0.77);
     border: 1px solid black;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px black;
+}
+.note:hover{
+    background-color: silver;
+}
+.buttonDelete{
+    height: 25px;
+    width: 70px;
+    color: gray;
+    border-radius: 6px;
+    background-color: silver;
+    color: black;
+    box-shadow: 1px 1px 1px black;
+}
+.buttonDelete:hover{
+    background-color: white;
 }
