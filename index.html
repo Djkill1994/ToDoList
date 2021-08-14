@@ -9,14 +9,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="new-note">New note</h1>
-    <div class="notes-container">
+    <div class="notes-container" ></div>
+    <div class="create-textarea-container">
+        <h2>New note</h2>
+        <div class="controls">
+            <label>
+                <textarea class="create-textarea" placeholder="Add to note"></textarea>
+            </label>
+            <button id="add-button" disabled="disabled">ADD note</button>
+        </div>
     </div>
-    <div class="textarea-container">
-        <label>
-            <textarea class="textarea-create" placeholder="Add to note"></textarea>
-        </label>
-        <button class="add-button">ADD note</button>
+    <div class="change-textarea-container" style="display: none">
+        <h2>Change note</h2>
+        <div class="controls">
+            <label>
+                <textarea class="change-textarea"></textarea>
+            </label>
+            <button id="save-button">Save note</button>
+        </div>
     </div>
 <script src="main.js"></script>
 </body>
